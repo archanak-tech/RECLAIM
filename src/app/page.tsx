@@ -1,29 +1,44 @@
-import { ArrowRight, LockKeyhole, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  LockKeyhole,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f7f8f6] text-[#172019]">
       {/* Navigation */}
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <div className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#172019] text-sm font-bold text-white">
             R
           </div>
-          <span className="text-xl font-semibold tracking-tight">RECLAIM</span>
-        </div>
+
+          <span className="text-xl font-semibold tracking-tight">
+            RECLAIM
+          </span>
+        </a>
 
         <div className="hidden items-center gap-8 text-sm text-[#657067] md:flex">
-          <a href="#how-it-works" className="transition hover:text-[#172019]">
+          <a
+            href="#how-it-works"
+            className="transition hover:text-[#172019]"
+          >
             How it works
           </a>
+
           <a href="#trust" className="transition hover:text-[#172019]">
             Trust & privacy
           </a>
         </div>
 
-        <button className="rounded-full border border-[#dce1dc] bg-white px-5 py-2.5 text-sm font-medium transition hover:border-[#172019]">
+        <a
+          href="/report"
+          className="rounded-full border border-[#dce1dc] bg-white px-5 py-2.5 text-sm font-medium transition hover:border-[#172019]"
+        >
           Get started
-        </button>
+        </a>
       </nav>
 
       {/* Hero */}
@@ -46,15 +61,22 @@ export default function Home() {
               intelligent matching and blind ownership verification.
             </p>
 
+            {/* Main CTAs */}
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <button className="group flex items-center justify-center gap-3 rounded-full bg-[#172019] px-6 py-3.5 text-sm font-medium text-white transition hover:bg-[#27352b]">
+              <a
+                href="/report?type=lost"
+                className="group flex items-center justify-center gap-3 rounded-full bg-[#172019] px-6 py-3.5 text-sm font-medium text-white transition hover:bg-[#27352b]"
+              >
                 I lost something
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-              </button>
+              </a>
 
-              <button className="flex items-center justify-center gap-3 rounded-full border border-[#ccd4cd] bg-white px-6 py-3.5 text-sm font-medium transition hover:border-[#172019]">
+              <a
+                href="/report?type=found"
+                className="flex items-center justify-center gap-3 rounded-full border border-[#ccd4cd] bg-white px-6 py-3.5 text-sm font-medium transition hover:border-[#172019]"
+              >
                 I found something
-              </button>
+              </a>
             </div>
 
             <div className="mt-9 flex flex-wrap gap-5 text-xs text-[#737d75]">
@@ -62,6 +84,7 @@ export default function Home() {
                 <ShieldCheck className="h-4 w-4" />
                 Privacy-first
               </span>
+
               <span className="flex items-center gap-2">
                 <LockKeyhole className="h-4 w-4" />
                 Private evidence
@@ -78,6 +101,7 @@ export default function Home() {
                     <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#879188]">
                       Ownership check
                     </p>
+
                     <h2 className="mt-1 text-xl font-semibold">
                       Prove it’s yours.
                     </h2>
@@ -96,6 +120,7 @@ export default function Home() {
                   <p className="mt-5 text-center text-sm font-medium">
                     Evidence is private
                   </p>
+
                   <p className="mt-1 text-center text-xs leading-5 text-[#7a847c]">
                     Claimants never see the finder’s private evidence.
                   </p>
@@ -106,18 +131,23 @@ export default function Home() {
                     <p className="text-[10px] uppercase tracking-wider text-[#929b94]">
                       Visual
                     </p>
+
                     <p className="mt-1 text-sm font-semibold">Matched</p>
                   </div>
+
                   <div className="rounded-xl bg-white p-3">
                     <p className="text-[10px] uppercase tracking-wider text-[#929b94]">
                       Details
                     </p>
+
                     <p className="mt-1 text-sm font-semibold">Matched</p>
                   </div>
+
                   <div className="rounded-xl bg-white p-3">
                     <p className="text-[10px] uppercase tracking-wider text-[#929b94]">
                       Trust
                     </p>
+
                     <p className="mt-1 text-sm font-semibold">Verified</p>
                   </div>
                 </div>
@@ -129,6 +159,7 @@ export default function Home() {
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#e8eee8]">
                   <ShieldCheck className="h-4 w-4" />
                 </div>
+
                 <div>
                   <p className="text-xs text-[#7b857d]">Verification</p>
                   <p className="text-sm font-semibold">Owner confirmed</p>
@@ -149,6 +180,7 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7a847c]">
               How RECLAIM works
             </p>
+
             <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
               Find it. Prove it. Reclaim it.
             </h2>
@@ -157,15 +189,29 @@ export default function Home() {
           <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-[#e0e4df] bg-[#e0e4df] md:grid-cols-4">
             {[
               ["01", "Report", "Tell RECLAIM what was lost or found."],
-              ["02", "Match", "AI compares objects, details, time and location."],
-              ["03", "Verify", "The claimant proves ownership without seeing private evidence."],
-              ["04", "Reclaim", "A verified owner gets their item back safely."],
+              [
+                "02",
+                "Match",
+                "AI compares objects, details, time and location.",
+              ],
+              [
+                "03",
+                "Verify",
+                "The claimant proves ownership without seeing private evidence.",
+              ],
+              [
+                "04",
+                "Reclaim",
+                "A verified owner gets their item back safely.",
+              ],
             ].map(([number, title, description]) => (
               <div key={number} className="bg-white p-7">
                 <span className="text-xs font-semibold text-[#8a948c]">
                   {number}
                 </span>
+
                 <h3 className="mt-8 text-lg font-semibold">{title}</h3>
+
                 <p className="mt-2 text-sm leading-6 text-[#707a72]">
                   {description}
                 </p>
@@ -183,6 +229,7 @@ export default function Home() {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#aeb8af]">
                 The difference
               </p>
+
               <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">
                 We don’t ask if you recognize the item.
                 <br />
@@ -193,13 +240,25 @@ export default function Home() {
             <div className="rounded-3xl border border-white/10 bg-white/5 p-7">
               <div className="flex gap-4">
                 <LockKeyhole className="mt-1 h-5 w-5 shrink-0 text-[#c6d0c8]" />
+
                 <div>
-                  <h3 className="font-semibold">Blind ownership verification</h3>
+                  <h3 className="font-semibold">
+                    Blind ownership verification
+                  </h3>
+
                   <p className="mt-2 text-sm leading-6 text-[#aeb8af]">
                     Finder evidence stays private. RECLAIM evaluates a
                     claimant’s evidence against it without revealing the
                     hidden details that make the item identifiable.
                   </p>
+
+                  <a
+                    href="/claim"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white underline-offset-4 hover:underline"
+                  >
+                    See verification flow
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
                 </div>
               </div>
             </div>
