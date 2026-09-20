@@ -134,9 +134,7 @@ export default function ReportPage() {
                 <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#526156]" />
 
                 <div>
-                  <p className="text-xs font-semibold">
-                    PRIVATE EVIDENCE
-                  </p>
+                  <p className="text-xs font-semibold">PRIVATE EVIDENCE</p>
 
                   <p className="mt-1 text-xs leading-5 text-[#657067]">
                     This image will never be shown to people claiming the
