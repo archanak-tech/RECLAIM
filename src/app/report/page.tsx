@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -13,7 +13,14 @@ import {
 } from "lucide-react";
 
 export default function ReportPage() {
-  const [type, setType] = useState<"lost" | "found">("lost");
+  const [type, setType] = useState<"lost" | "found">(
+    typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).get("type") === "found"
+      ? "found"
+      : "lost"
+  );
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   return (
     <main className="min-h-screen bg-[#f7f8f6] text-[#172019]">
@@ -94,7 +101,17 @@ export default function ReportPage() {
                 : "Upload a photo, if you have one"}
             </label>
 
-            <div className="mt-2 cursor-pointer rounded-2xl border border-dashed border-[#cbd3cc] bg-[#fafbf9] p-8 text-center transition hover:border-[#172019]">
+            <div
+              onClick={() => fileInputRef.current?.click()}
+              className="mt-2 cursor-pointer rounded-2xl border border-dashed border-[#cbd3cc] bg-[#fafbf9] p-8 text-center transition hover:border-[#172019]"
+            >
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                className="hidden"
+              />
+
               <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white">
                 {type === "found" ? (
                   <Camera className="h-5 w-5 text-[#657067]" />
@@ -173,8 +190,8 @@ export default function ReportPage() {
             <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#526156]" />
 
             <p className="text-xs leading-5 text-[#657067]">
-              RECLAIM will create an AI object fingerprint from the information
-              you provide and use it to find potential matches.
+              RECLAIM will create an AI object fingerprint from the
+              information you provide and use it to find potential matches.
             </p>
           </div>
 
@@ -187,3 +204,4 @@ export default function ReportPage() {
     </main>
   );
 }
+```
